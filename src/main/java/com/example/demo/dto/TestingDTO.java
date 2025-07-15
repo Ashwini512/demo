@@ -1,15 +1,15 @@
 package com.example.demo.dto;
 
 public class TestingDTO {
-	
-	private int testValu;
 
-	public int getTestValu() {
-		return testValu;
+	private int testValues;
+
+	public int gettestValues() {
+		return testValues;
 	}
 
-	public void setTestValu(int testValu) {
-		this.testValu = testValu;
+	public void setTestValues(int testValues) {
+		this.testValues = testValues;
 	}
 
 }
