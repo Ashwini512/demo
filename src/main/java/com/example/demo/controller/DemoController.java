@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.DemoDTO;
@@ -39,6 +42,14 @@ public class DemoController {
 	@DeleteMapping("/delete/{id}")
 	public DemoEntity deleteDemoDetails(@PathVariable long id) {
 		return demoService.deleteDemoDetails(id);
+	}
+	@GetMapping("/getAllTopics")
+	public List<String> getAllTpoics(){
+		return demoService.getAllTopics();
+	}
+	@GetMapping("getDemoByTopic")
+	public DemoEntity getDemoByTopic(@RequestParam String topic) {
+		return demoService.getDemoByTopic(topic);
 	}
 
 }
