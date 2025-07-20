@@ -21,35 +21,44 @@ import com.example.demo.service.DemoService;
 public class DemoController {
 	@Autowired
 	private DemoService demoService;
+
 	@GetMapping("/demo")
 	public String demoDetails() {
 		return "demorelated controllers";
 	}
+
 	@PostMapping("/save")
 	public String postDemoDetails(@RequestBody DemoDTO demoDto) {
 		return demoService.addDemoDetails(demoDto);
-		
 	}
+
 	@PutMapping("/update/{id}")
-	public String putDemoDetails(@PathVariable long id,@RequestBody DemoDTO demodto) {
-		return demoService.updateDemoDetails(id,demodto);
-		
+	public String putDemoDetails(@PathVariable long id, @RequestBody DemoDTO demodto) {
+		return demoService.updateDemoDetails(id, demodto);
 	}
+
 	@PatchMapping("/patch/{id}/{topic}")
-	public String patchDemoDetails(@PathVariable long id,@PathVariable String topic ) {
-		return demoService.patchDemoDetails(id,topic);
+	public String patchDemoDetails(@PathVariable long id, @PathVariable String topic) {
+		return demoService.patchDemoDetails(id, topic);
 	}
+
 	@DeleteMapping("/delete/{id}")
 	public DemoEntity deleteDemoDetails(@PathVariable long id) {
 		return demoService.deleteDemoDetails(id);
 	}
+
 	@GetMapping("/getAllTopics")
-	public List<String> getAllTpoics(){
+	public List<String> getAllTpoics() {
 		return demoService.getAllTopics();
 	}
+
 	@GetMapping("getDetailsByTopic")
 	public DemoEntity getDetailsByTopic(@RequestParam String topic) {
 		return demoService.getDetailsByTopic(topic);
 	}
 
+	@GetMapping("getDemoByTopic")
+	public DemoEntity getDemoByTopic(@RequestParam String topic) {
+		return demoService.getDemoByTopic(topic);
+	}
 }
