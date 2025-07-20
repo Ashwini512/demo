@@ -30,7 +30,7 @@ public class DemoServiceImpl implements DemoService {
 		DemoEntity updateEntity=demoRepository.findById(id).orElse(null);
 	    updateEntity.setDate(demodto.getDate());
 	    updateEntity.setTopic(demodto.getTopic());
-	    DemoEntity updatedEntity=demoRepository.save(updateEntity);
+	    demoRepository.save(updateEntity);
 		return "updated the demo details";
 		
 	}
@@ -38,7 +38,7 @@ public class DemoServiceImpl implements DemoService {
 	public String patchDemoDetails(long id,String topic) {
 		DemoEntity updateEntity=demoRepository.findById(id).orElse(null);
 		updateEntity.setTopic(topic);
-		DemoEntity patchEntity=demoRepository.save(updateEntity);
+		demoRepository.save(updateEntity);
 		return "topic is updated";
 		
 	}
@@ -66,6 +66,10 @@ public class DemoServiceImpl implements DemoService {
 	public String applicationName() {
 		
 		return "Demo";
+	}
+	
+	public void display() {
+		System.out.println("It si a demo project");
 	}
 	
 
