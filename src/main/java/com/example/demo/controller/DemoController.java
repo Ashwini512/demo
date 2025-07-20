@@ -54,11 +54,7 @@ public class DemoController {
 
 	@GetMapping("getDetailsByTopic")
 	public DemoEntity getDetailsByTopic(@RequestParam String topic) {
-		return demoService.getDetailsByTopic(topic);
-	}
-
-	@GetMapping("getDemoByTopic")
-	public DemoEntity getDemoByTopic(@RequestParam String topic) {
 		return demoService.getDemoByTopic(topic);
 	}
+
 }
