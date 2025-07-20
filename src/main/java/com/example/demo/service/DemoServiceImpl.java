@@ -1,7 +1,9 @@
+
 package com.example.demo.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,18 +51,34 @@ public class DemoServiceImpl implements DemoService {
 	}
 	@Override
 	public List<String> getAllTopics() {	
-		List<DemoEntity> demodatils= demoRepository.findAll();
+		List<DemoEntity> topic= demoRepository.findAll();
 		List<String> topics=new ArrayList<>();
-		for(DemoEntity d:demodatils) {
-			topics.add(d.getTopic());
+		for(DemoEntity entity:topic) {
+			topics.add(entity.getTopic());
 		}
 		return topics;
 	}
 	@Override
-	public DemoEntity getDetailsByTopic(String topic) {
-		DemoEntity topicDetails=demoRepository.findByTopic(topic); 
-		return topicDetails;
+	public DemoEntity getDemoByTopic(String topic) {
+		DemoEntity entity=demoRepository.findByTopic(topic); 
+		return entity;
 	}
-	
+	@Override
+	public DemoEntity getDemoById(long id) {
+		Optional<DemoEntity> entity=demoRepository.findById(id);
+		
+		if(entity.isPresent())
+		return entity.get();
+		else
+		 return null;
+		
+		
+	}
+	@Override
+	public String patchDetails(long id) {
+		DemoEntity updateEntity=demoRepository.findById(id).orElse(null);
+		return "topic is patched";
+	}
 
 }
+

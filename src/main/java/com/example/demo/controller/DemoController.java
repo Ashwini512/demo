@@ -41,15 +41,24 @@ public class DemoController {
 	}
 	@DeleteMapping("/delete/{id}")
 	public DemoEntity deleteDemoDetails(@PathVariable long id) {
+		
+		DemoEntity deleteDemoDetails = demoService.deleteDemoDetails(id);
 		return demoService.deleteDemoDetails(id);
 	}
 	@GetMapping("/getAllTopics")
 	public List<String> getAllTpoics(){
 		return demoService.getAllTopics();
 	}
-	@GetMapping("getDetailsByTopic")
-	public DemoEntity getDetailsByTopic(@RequestParam String topic) {
-		return demoService.getDetailsByTopic(topic);
+	@GetMapping("getDemoByTopic")
+	public DemoEntity getDemoByTopic(@RequestParam String topic) {
+		return demoService.getDemoByTopic(topic);
 	}
-
+	@GetMapping("getDemoById")
+	public DemoEntity getDemoById(@RequestParam long id)  {
+		return demoService.getDemoById(id);
+	}
+	@PatchMapping("/patch/{id}")
+	public String patchDetails(@PathVariable long id) {
+		return demoService.patchDetails(id);
+	}
 }

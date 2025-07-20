@@ -1,3 +1,4 @@
+
 package com.example.demo.service;
 
 import java.util.List;
@@ -6,12 +7,16 @@ import com.example.demo.dto.DemoDTO;
 import com.example.demo.entity.DemoEntity;
 
 public interface DemoService {
-	public String addDemoDetails(DemoDTO demoDto); 
-	public String updateDemoDetails(long id,DemoDTO demoDto);
-	public String patchDemoDetails(long id,String topic);
-    public DemoEntity deleteDemoDetails(long id);
-    public List<String> getAllTopics();
+	    String addDemoDetails(DemoDTO demoDto);
+	    String updateDemoDetails(long id, DemoDTO demoDto);
+	    String patchDemoDetails(long id, String topic);
+	    DemoEntity deleteDemoDetails(long id);
+	    List<String> getAllTopics();
 
-	public DemoEntity getDetailsByTopic(String topic);
+	    DemoEntity getDemoByTopic(String topic);
+	    DemoEntity getDemoById(long id);
+	    String patchDetails(long id);
 	
+
 }
+
