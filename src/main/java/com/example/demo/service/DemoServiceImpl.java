@@ -62,5 +62,10 @@ public class DemoServiceImpl implements DemoService {
 		return entity;
 	}
 	
+	public String applicationName() {
+		
+		return "Demo";
+	}
+	
 
 }
